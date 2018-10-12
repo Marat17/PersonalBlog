@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blog</title>
+</head>
+<body>
+
+<h1> Blog </h1>
+
+{% if allposts %}
+    <ul>
+    {% for post in allposts %}
+        <li><p>{{ post.text }}</p> Posted on {{ post.time }}</li><hr>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No posts are available.</p>
+{% endif %}
+</body>
+</html>
