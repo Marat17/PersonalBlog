@@ -2,7 +2,7 @@
 <html>
 <head>
     {% load i18n %}
-	<title>Blog</title>
+	<title>{% trans "Blog" %}</title>
 </head>
 <body>
 
@@ -11,15 +11,19 @@
 {% if allposts %}
     <ul>
     {% for post in allposts %}
-        <li><p>{{ post.text }}</p> Posted on {{ post.time }}</li><hr>
+        <li><p>{{ post.text }}</p> {% trans "Posted on " %}{{ post.time }}</li><hr>
     {% endfor %}
     </ul>
 {% else %}
     <p>No posts are available.</p>
 {% endif %}
+</body>
+<a href="{% url 'about' %}">{% trans "About the blog" %}</a><br>
+<a href="{% url 'create' %}">{% trans "Create a post" %}</a><br>
 {% get_available_languages as LANGUAGES %}
+<p>{% trans "Choose your language" %}</p>
 {% for lang in LANGUAGES %}
-    <li>
+
 	  <form name="setLang{{ lang.1}}" action="/blog/i18n/setlang/" method="POST">
 	  {% csrf_token %}
 	    <input name="next" type="hidden" value="/">
@@ -27,9 +31,5 @@
 	    <a href="#" onclick="document.setLang{{ lang.1 }}.submit();
 		    return false;">{{ lang.1 }}</a>
 	  </form>
-	</li>
   {% endfor %}
-</body>
-<a href="{% url 'about' %}">About the blog</a><br>
-<a href="{% url 'create' %}">Create a post</a>
 </html>

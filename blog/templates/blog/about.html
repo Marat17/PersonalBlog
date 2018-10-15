@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
+<head>
+	{% load i18n %}
+<title>{% trans "About" %}</title>
+</head>
 <body>
 
 
 
-<h1>About the Blog</h1>
-<p>I hope tomorrow this page will extend the base template</p>
+<h1>{% trans "About the Blog" %}</h1>
+<p>{% trans "I hope tomorrow this page will extend the base template" %}</p>
 </body>
-<a href="{% url 'index' %}">To the main page</a>
+<a href="{% url 'index' %}">{% trans "To the main page" %}</a>
 </html>
