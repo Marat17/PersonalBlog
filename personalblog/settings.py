@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'personalblog.urls'
@@ -106,9 +107,20 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Europe/Moscow'
+LANGUAGES = (
+    ('en-us', 'English'),
+    ('ru', 'Russian'),
+)
 
-USE_I18N = True
+USE_I18N = True  # активация системы перевода django
+
+# месторасположение файлов перевода
+LOCALE_PATHS = (
+    'locale',
+    # os.path.join(PROJECT_DIR, 'locale'),
+)
+
+TIME_ZONE = 'Europe/Moscow'
 
 USE_L10N = True
 
