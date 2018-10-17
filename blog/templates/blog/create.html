@@ -1,29 +1,98 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+{% load static %}
+{% load i18n %}
+<!--
+	Twenty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
-<head>
-	{% load i18n %}
-<title>{% trans "New Post" %}</title>
-</head>
+	<head>
+		<title>{% trans "New Post" %}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'blog/main.css' %}" />
+		<noscript><link rel="stylesheet" href="{% static 'blog/noscript.css' %}" /></noscript>
+	</head>
+	<body class="contact is-preload">
+		<div id="page-wrapper">
 
-<body>
-<h1>{% trans "Add a Post" %}</h1>
-	<div>
-		<form id='create_form' method = 'post'>
-		{% csrf_token %}
-		{% for field in form.visible_fields %}
-			{{ field.errors }}
-			{{ field.help_text }}<br>
-			{{ field }}
-		{% endfor %}
+		<!-- Header -->
+				<header id="header">
+					<h1 id="logo"><a href="{% url 'index' %}">{% trans "Blog" %} <span>created by Marat Mukhutdinov</span></a></h1>
+					<nav id="nav">
+						<ul>
+																{% get_available_languages as LANGUAGES %}
+{% for lang in LANGUAGES %}
 
-		<input type='submit' name='submit' value='{% trans "Create a post" %}' />
-		</form>
-	</div>
+	  <li><form name="setLang{{ lang.1}}" action="/blog/i18n/setlang/" method="POST">
+	  {% csrf_token %}
+	    <input name="next" type="hidden" value="/">
+	    <input type="hidden" name="language" value="{{ lang.0 }}">
+	    <a href="{% url 'index' %}" onclick="document.setLang{{ lang.1 }}.submit();
+		    return false;">{{ lang.1 }}</a>
+	  </form></li>
+  {% endfor %}
+<li><a href="{% url 'create' %}" class="button primary">New Post</a></li>
 
-</body>
+						</ul>
+					</nav>
+				</header>
 
-<a href="{% url 'index' %}">{% trans "To the main page" %}</a>
+			<!-- Main -->
+				<article id="main">
 
+					<header class="special container">
+						<span class="icon fa-envelope"></span>
+						<h2>Create a post</h2>
+						<p>Write whatever you want</p>
+					</header>
+
+					<!-- One -->
+						<section class="wrapper style4 special container medium">
+
+							<!-- Content -->
+								<div class="content">
+											<form id='create_form' method = 'post'>
+											{% csrf_token %}
+											{% for field in form.visible_fields %}
+												{{ field.errors }}
+												{{ field.help_text }}<br>
+												{{ field }}
+											{% endfor %}
+<br>
+											<input type='submit' name='submit' value='{% trans "Create a post" %}' />
+											</form>
+								</div>
+
+						</section>
+
+				</article>
+
+			<!-- Footer -->
+				<footer id="footer">
+
+					<ul class="icons">
+						<li><a href="https://github.com/Marat17" class="icon circle fa-github"><span class="label">Github</span></a></li>
+					</ul>
+
+					<ul class="copyright">
+						<li>&copy; Marat Muhutdinov</li><li>Blog</li>
+					</ul>
+
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'blog/jquery.min.js' %}"></script>
+            <script src="{% static 'blog/jquery.dropotron.min.js' %}"></script>
+            <script src="{% static 'blog/jquery.scrolly.min.js' %}"></script>
+            <script src="{% static 'blog/jquery.scrollex.min.js' %}"></script>
+            <script src="{% static 'blog/browser.min.js' %}"></script>
+            <script src="{% static 'blog/breakpoints.min.js' %}"></script>
+            <script src="{% static 'blog/util.js' %}"></script>
+            <script src="{% static 'blog/main.js' %}"></script>
+
+	</body>
 </html>
-
-# <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}" />

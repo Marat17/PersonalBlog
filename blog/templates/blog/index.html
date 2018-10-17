@@ -19,7 +19,7 @@
 
 			<!-- Header -->
 				<header id="header" class="alt">
-					<h1 id="logo"><a href="index.html">{% trans "Blog" %} <span>created by Marat Mukhutdinov</span></a></h1>
+					<h1 id="logo"><a href="{% url 'index' %}">{% trans "Blog" %} <span>created by Marat Mukhutdinov</span></a></h1>
 					<nav id="nav">
 						<ul>
 							{% get_available_languages as LANGUAGES %}
@@ -29,7 +29,7 @@
 	  {% csrf_token %}
 	    <input name="next" type="hidden" value="/">
 	    <input type="hidden" name="language" value="{{ lang.0 }}">
-	    <a href="#" onclick="document.setLang{{ lang.1 }}.submit();
+	    <a href="{% url 'index' %}" onclick="document.setLang{{ lang.1 }}.submit();
 		    return false;">{{ lang.1 }}</a>
 	  </form></li>
   {% endfor %}
@@ -76,7 +76,7 @@
 							</header>
 {% if allposts %}
 			{% for post in allposts %}
-							<div class="row">
+							<div class="row.aln-center">
 								<div class="col-6 col-12-narrower">
 
 									<section>
@@ -90,15 +90,15 @@
 
 
 								</div>
-							</div>{% endfor %}
+							</div>
+								{% endfor %}
 							{% else %}
     <p>No posts are available.</p>
 {% endif %}
-
-
 						</section>
 
-				</article>
+
+
 
 			<!-- CTA -->
 				<section id="cta">
