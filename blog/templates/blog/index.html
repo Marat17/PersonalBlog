@@ -19,7 +19,7 @@
 
 			<!-- Header -->
 				<header id="header" class="alt">
-					<h1 id="logo"><a href="{% url 'index' %}">{% trans "Blog" %} <span>created by Marat Mukhutdinov</span></a></h1>
+					<h1 id="logo"><a href="{% url 'index' %}">{% trans "Blog" %} <span>{% trans "created by Marat Mukhutdinov" %}</span></a></h1>
 					<nav id="nav">
 						<ul>
 							{% get_available_languages as LANGUAGES %}
@@ -33,7 +33,7 @@
 		    return false;">{{ lang.1 }}</a>
 	  </form></li>
   {% endfor %}
-							<li><a href="{% url 'create' %}" class="button primary">New Post</a></li>
+							<li><a href="{% url 'create' %}" class="button primary">{% trans "New Post" %}</a></li>
 
 						</ul>
 					</nav>
@@ -51,15 +51,15 @@
 					<div class="inner">
 
 						<header>
-							<h2>Not Personal Blog</h2>
+							<h2>{% trans "Not Personal Blog" %}</h2>
 						</header>
-						<p>This is <strong>Blog</strong>,
-							<br /> an app that lets anyone
+						<p>{% trans "This is" %}<strong>{% trans "Blog" %}</strong>,
+							<br />{% trans "an app that lets anyone" %}
 						<br />
-						create and see posts on this page.</p>
+						{% trans "create and see posts on this page." %}</p>
 						<footer>
 							<ul class="buttons stacked">
-								<li><a href="{% url 'about' %}" class="button fit scrolly">Tell Me More</a></li>
+								<li><a href="{% url 'about' %}" class="button fit scrolly">{% trans "Tell Me More" %}</a></li>
 							</ul>
 						</footer>
 
@@ -72,7 +72,8 @@
 						<section class="wrapper style3 container special">
 
 							<header class="major">
-								<h2>These are <strong>all the posts</strong></h2>
+								<h2>{% trans "These are" %}
+									<strong> {% trans "all the posts" %}</strong></h2>
 							</header>
 {% if allposts %}
 			{% for post in allposts %}
@@ -93,7 +94,7 @@
 							</div>
 								{% endfor %}
 							{% else %}
-    <p>No posts are available.</p>
+    <p>{% trans "No posts are available." %}</p>
 {% endif %}
 						</section>
 
@@ -104,13 +105,13 @@
 				<section id="cta">
 
 					<header>
-						<h2>Here is my <strong>CV on headhunter</strong></h2>
-						<p>Feel free to contact me via E-Mail</p>
+						<h2>{% trans "Here is my " %}<strong>{% trans "CV on headhunter" %}</strong></h2>
+						<p>{% trans "Feel free to contact me via E-Mail" %}</p>
 					</header>
 					<footer>
 						<ul class="buttons">
 							<li><a href="mailto:muhutdinov@hotmail.com" class="button primary">E-Mail</a></li>
-							<li><a href="https://hh.ru/resume/b9278360ff05bae0830039ed1f627a30705a67" class="button">CV</a></li>
+							<li><a href="https://hh.ru/resume/b9278360ff05bae0830039ed1f627a30705a67" class="button">{% trans "CV" %}</a></li>
 						</ul>
 					</footer>
 
@@ -124,7 +125,7 @@
 					</ul>
 
 					<ul class="copyright">
-						<li>&copy; Marat Muhutdinov</li><li>Blog</li>
+						<li>&copy; {% trans "Marat Muhutdinov" %}</li><li>{% trans "Blog" %}</li>
 					</ul>
 
 				</footer>
