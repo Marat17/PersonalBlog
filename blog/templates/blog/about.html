@@ -33,7 +33,7 @@
 		    return false;">{{ lang.1 }}</a>
 	  </form></li>
   {% endfor %}
-<li><a href="{% url 'create' %}" class="button primary">New Post</a></li>
+<li><a href="{% url 'create' %}" class="button primary">{% trans "New Post" %}</a></li>
 
 						</ul>
 					</nav>
@@ -44,7 +44,7 @@
 
 					<header class="special container">
 						<span class="icon fa-laptop"></span>
-						<h2>Here you can learn <strong>About</strong> the Blog</h2>
+						<h2>{% trans "Here you can learn " %} <strong>{% trans "About " %}</strong>{% trans "the Blog" %}</h2>
 					</header>
 
 					<!-- One -->
@@ -57,12 +57,12 @@
 										<div class="sidebar">
 											<section>
 												<header>
-													<h3>The main purpose</h3>
+													<h3>{% trans "The main purpose" %}</h3>
 												</header>
-												<p>This web app's main and only purpose is to publish small texts on the main page one after another.</p>
+												<p>{% trans "This web app's main and only purpose is to publish small texts on the main page one after another." %}</p>
 												<footer>
 													<ul class="buttons">
-														<li><a href="{% url 'index' %}" class="button small">Main Page</a></li>
+														<li><a href="{% url 'index' %}" class="button small">{% trans "Main Page" %}</a></li>
 													</ul>
 												</footer>
 											</section>
@@ -78,9 +78,9 @@
 											<section>
 												<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
 												<header>
-													<h3>But it is important to mention...</h3>
+													<h3>{% trans "But it is important to mention..." %}</h3>
 												</header>
-												<p>...that I am learning to work with HTML, CSS and Javascript, connecting it to my backend, written in Python/Django, while making this website.</p>
+												<p>{% trans "...that I am learning to work with HTML, CSS and Javascript, connecting it to my backend, written in Python/Django, while making this website." %}</p>
 											</section>
 										</div>
 
@@ -95,12 +95,12 @@
 
 									<section>
 										<header>
-											<h3>This is Something</h3>
+											<h3>{% trans "This is Something" %}</h3>
 										</header>
 										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
 										<footer>
 											<ul class="buttons">
-												<li><a href="{% url 'index' %}" class="button small">Learn More</a></li>
+												<li><a href="{% url 'index' %}" class="button small">{% trans "Learn More" %}</a></li>
 											</ul>
 										</footer>
 									</section>
@@ -110,12 +110,12 @@
 
 									<section>
 										<header>
-											<h3>Also Something</h3>
+											<h3>{% trans "Also Something" %}</h3>
 										</header>
 										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
 										<footer>
 											<ul class="buttons">
-												<li><a href="{% url 'index' %}" class="button small">Learn More</a></li>
+												<li><a href="{% url 'index' %}" class="button small">{% trans "Learn More" %}</a></li>
 											</ul>
 										</footer>
 									</section>
@@ -125,12 +125,12 @@
 
 									<section>
 										<header>
-											<h3>Probably Something</h3>
+											<h3>{% trans "Probably Something" %}</h3>
 										</header>
 										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
 										<footer>
 											<ul class="buttons">
-												<li><a href="{% url 'index' %}" class="button small">Learn More</a></li>
+												<li><a href="{% url 'index' %}" class="button small">{% trans "Learn More" %}</a></li>
 											</ul>
 										</footer>
 									</section>
@@ -149,7 +149,7 @@
 					</ul>
 
 					<ul class="copyright">
-						<li>&copy; Marat Muhutdinov</li><li>Blog</li>
+						<li>&copy; {% trans "Marat Muhutdinov" %}</li><li>{% trans "Blog" %}</li>
 					</ul>
 
 				</footer>

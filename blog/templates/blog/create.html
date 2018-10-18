@@ -33,7 +33,7 @@
 		    return false;">{{ lang.1 }}</a>
 	  </form></li>
   {% endfor %}
-<li><a href="{% url 'create' %}" class="button primary">New Post</a></li>
+<li><a href="{% url 'create' %}" class="button primary">{% trans "New Post" %}</a></li>
 
 						</ul>
 					</nav>
@@ -44,8 +44,8 @@
 
 					<header class="special container">
 						<span class="icon fa-envelope"></span>
-						<h2>Create a post</h2>
-						<p>Write whatever you want</p>
+						<h2>{% trans "Create a post" %}</h2>
+						<p>{% trans "Write whatever you want" %}</p>
 					</header>
 
 					<!-- One -->
@@ -77,7 +77,7 @@
 					</ul>
 
 					<ul class="copyright">
-						<li>&copy; Marat Muhutdinov</li><li>Blog</li>
+						<li>&copy; {% trans "Marat Muhutdinov" %}</li><li>{% trans "Blog" %}</li>
 					</ul>
 
 				</footer>
